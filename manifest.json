@@ -1,0 +1,18 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "Covid 19 Track",
+  "description": "This extension helps you keep track of covid 19 cases.",
+  "developer_name": "Egehan Gündoğdu",
+  "icon": "images/emoji/Virus.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "keyword",
+      "type": "keyword",
+      "name": "Covid 19",
+      "default_value": "cv"
+    }
+  ]
+}
