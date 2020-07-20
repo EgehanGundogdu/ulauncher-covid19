@@ -2,7 +2,7 @@ import requests
 
 
 def remove_unnecessary_info(country):
-    keys = ["Province", "City", "CityCode", "Lat", "Lon", "Slug", "Date", "CountryCode"]
+    keys = ["Slug", "CountryCode", "Premium", "Date"]
     for i in keys:
         if i in country:
             country.pop(i)
