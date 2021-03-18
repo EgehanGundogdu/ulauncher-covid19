@@ -1,8 +1,9 @@
 import requests
+import re
 
 
 def remove_unnecessary_info(country):
-    keys = ["Slug", "CountryCode", "Premium", "Date"]
+    keys = ["Slug", "CountryCode", "Premium", "Date", "ID"]
     for i in keys:
         if i in country:
             country.pop(i)
@@ -24,3 +25,8 @@ def beautify_stats(stat):
     if type(stat) == int:
         return "{:,}".format(stat).replace(",", ".")
     return stat
+
+
+def beautify_key(key: str):
+    word_list = re.findall("[A-Z][^A-Z]*", key)
+    return " ".join(word_list).title()

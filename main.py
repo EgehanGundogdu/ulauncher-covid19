@@ -9,6 +9,7 @@ from utils import (
     generate_icon_path,
     remove_unnecessary_info,
     beautify_stats,
+    beautify_key,
 )
 
 
@@ -30,16 +31,17 @@ class KeywordEventListener(EventListener):
             results.append(
                 ExtensionResultItem(
                     name="World",
-                    description="World status",
+                    description="World Status",
                     on_enter=HideWindowAction(),
                     icon=f"images/emoji/World.png",
                 )
             )
-            for key, value in req.items():
+            world_summary = remove_unnecessary_info(req)
+            for key, value in world_summary.items():
                 results.append(
                     ExtensionResultItem(
                         name=beautify_stats(value),
-                        description=key,
+                        description=beautify_key(key),
                         on_enter=HideWindowAction(),
                         icon=generate_icon_path(key),
                     )
@@ -69,7 +71,7 @@ class KeywordEventListener(EventListener):
                     results.append(
                         ExtensionResultItem(
                             name=beautify_stats(value),
-                            description=key,
+                            description=beautify_key(key),
                             on_enter=HideWindowAction(),
                             icon=genereated_icon,
                         )
